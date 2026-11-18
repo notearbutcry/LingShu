@@ -1,8 +1,0 @@
-# Tested exact versions are recorded separately in requirements-tested.txt when available.
-streamlit>=1.37,<2
-autogen-agentchat>=0.4.9,<0.8
-autogen-ext[openai]>=0.4.9,<0.8
-pandas>=2.2,<3
-plotly>=5.24,<7
-nest-asyncio>=1.6,<2
-openai>=1.93,<2
