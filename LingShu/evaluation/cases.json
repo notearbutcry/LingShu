@@ -1,0 +1,17 @@
+[
+  {
+    "id": "sim-pump",
+    "domain": "pump",
+    "task": "模拟案例：水泵异常振动，轴承温度升高，没有测量数值。"
+  },
+  {
+    "id": "sim-motor",
+    "domain": "motor",
+    "task": "模拟案例：电机温度升高且有异响，工况与电流数据未提供。"
+  },
+  {
+    "id": "sim-unknown",
+    "domain": "general",
+    "task": "模拟案例：设备报警，但设备型号与报警代码尚不清楚。"
+  }
+]
