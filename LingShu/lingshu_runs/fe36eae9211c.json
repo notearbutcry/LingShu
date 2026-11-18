@@ -1,0 +1,955 @@
+{
+  "saved_at": "2026-11-12T17:59:22",
+  "result": {
+    "run_id": "fe36eae9211c",
+    "task": "python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary",
+    "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。",
+    "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n关于本轮审核意见中“遵循现场作业许可流程”一项：该要求属于现场作业管理范畴，与本条 Python 安装命令无直接对应关系，但作为工业运维教学演示环境的一般要求予以纳入。任何涉及现场设备、控制网络或生产系统的操作，均须先按现场规程办理作业许可，未经许可不得实施；本条安装命令本身不构成作业许可，也不替代作业许可审批。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，并按现场规程办理作业许可；确认与许可审批完成前，不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程并落实作业许可要求。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离、作业许可手续完备后再进行安装验证；禁止在未确认隔离或未取得作业许可的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；未按现场规程办理作业许可或许可未获批准；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n- 现场作业许可的办理状态与审批结果：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，按现场作业许可流程办理并取得批准，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+    "review": "**审核结果：文本审核通过（仍待人工确认）**\n\n风险级别（AI 判断）：低\n\n本轮未发现所检查项目的明显缺项；不等于现场安全认证。",
+    "status": "DEMO_CONFIRMED",
+    "missing_phrases": [],
+    "validation_issues": [],
+    "revision_history": [
+      {
+        "round": 0,
+        "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，确认前不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁、禁止带电拆卸、禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离后再进行安装验证；禁止在未确认隔离的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+        "review": "**审核结果：文本审核通过（仍待人工确认）**\n\n风险级别（AI 判断）：低\n\n本轮未发现所检查项目的明显缺项；不等于现场安全认证。\n\n**平台独立校验：未通过**\n\n- 【测试注入】本轮要求补充：遵循现场作业许可流程",
+        "review_raw": "{\"passed\":true,\"risk_level\":\"low\",\"issues\":[]}",
+        "review_passed": false,
+        "model_review_passed": true,
+        "risk_level": "low",
+        "test_injected": true,
+        "missing_phrases": [],
+        "validation_issues": [],
+        "issues": [
+          "【测试注入】本轮要求补充：遵循现场作业许可流程"
+        ],
+        "duration_ms": 1054,
+        "timestamp": "2026-11-12T17:58:57"
+      },
+      {
+        "round": 1,
+        "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n关于本轮审核意见中“遵循现场作业许可流程”一项：该要求属于现场作业管理范畴，与本条 Python 安装命令无直接对应关系，但作为工业运维教学演示环境的一般要求予以纳入。任何涉及现场设备、控制网络或生产系统的操作，均须先按现场规程办理作业许可，未经许可不得实施；本条安装命令本身不构成作业许可，也不替代作业许可审批。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，并按现场规程办理作业许可；确认与许可审批完成前，不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程并落实作业许可要求。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离、作业许可手续完备后再进行安装验证；禁止在未确认隔离或未取得作业许可的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；未按现场规程办理作业许可或许可未获批准；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n- 现场作业许可的办理状态与审批结果：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，按现场作业许可流程办理并取得批准，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+        "review": "**审核结果：文本审核通过（仍待人工确认）**\n\n风险级别（AI 判断）：低\n\n本轮未发现所检查项目的明显缺项；不等于现场安全认证。",
+        "review_raw": "{\"passed\":true,\"risk_level\":\"low\",\"issues\":[]}",
+        "review_passed": true,
+        "model_review_passed": true,
+        "risk_level": "low",
+        "test_injected": false,
+        "missing_phrases": [],
+        "validation_issues": [],
+        "issues": [],
+        "duration_ms": 718,
+        "timestamp": "2026-11-12T17:59:02",
+        "diagnosis_before": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，确认前不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁、禁止带电拆卸、禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离后再进行安装验证；禁止在未确认隔离的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+        "diagnosis_after": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n关于本轮审核意见中“遵循现场作业许可流程”一项：该要求属于现场作业管理范畴，与本条 Python 安装命令无直接对应关系，但作为工业运维教学演示环境的一般要求予以纳入。任何涉及现场设备、控制网络或生产系统的操作，均须先按现场规程办理作业许可，未经许可不得实施；本条安装命令本身不构成作业许可，也不替代作业许可审批。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，并按现场规程办理作业许可；确认与许可审批完成前，不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程并落实作业许可要求。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离、作业许可手续完备后再进行安装验证；禁止在未确认隔离或未取得作业许可的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；未按现场规程办理作业许可或许可未获批准；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n- 现场作业许可的办理状态与审批结果：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，按现场作业许可流程办理并取得批准，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。"
+      }
+    ],
+    "max_revisions": 2,
+    "self_loop_test": true,
+    "revision_count": 1,
+    "finished_at": "2026-11-12T17:59:02",
+    "stop_code": "TEXT_CHECKS_PASSED",
+    "blocking_issues": [],
+    "plan": {
+      "domain": "general",
+      "priority": 2,
+      "need_specialist": false,
+      "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+      "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+      "knowledge_priority": 2,
+      "specialist_priority": 3,
+      "fallback": false
+    },
+    "evidence": [
+      {
+        "id": "demo-input",
+        "title": "故障信息采集字段示例",
+        "source": "LingShu团队演示资料，非行业规程",
+        "demo": true,
+        "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+        "score": 0.0714
+      }
+    ],
+    "schedule_trace": [
+      {
+        "node": "planning",
+        "capability": "plan",
+        "domain": "general",
+        "selected": "planner_agent@2.1.0",
+        "candidates": [
+          {
+            "agent": "planner_agent@2.1.0",
+            "score": 130.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": true
+          }
+        ],
+        "formula": "100 + 30*领域匹配 - 40*当前负载/容量"
+      },
+      {
+        "node": "knowledge_tool",
+        "capability": "knowledge",
+        "domain": "general",
+        "selected": "knowledge_agent@2.1.0",
+        "candidates": [
+          {
+            "agent": "knowledge_agent@2.1.0",
+            "score": 130.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": true
+          }
+        ],
+        "formula": "100 + 30*领域匹配 - 40*当前负载/容量"
+      },
+      {
+        "node": "knowledge_analysis",
+        "capability": "knowledge",
+        "domain": "general",
+        "selected": "knowledge_agent@2.1.0",
+        "candidates": [
+          {
+            "agent": "knowledge_agent@2.1.0",
+            "score": 130.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": true
+          }
+        ],
+        "formula": "100 + 30*领域匹配 - 40*当前负载/容量"
+      },
+      {
+        "node": "initial_diagnosis",
+        "capability": "diagnose",
+        "domain": "general",
+        "selected": "diagnosis_agent@2.1.0",
+        "candidates": [
+          {
+            "agent": "diagnosis_agent@2.1.0",
+            "score": 130.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": true
+          },
+          {
+            "agent": "pump_diagnosis_agent@2.1.0",
+            "score": 100.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": false
+          },
+          {
+            "agent": "motor_diagnosis_agent@2.1.0",
+            "score": 100.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": false
+          }
+        ],
+        "formula": "100 + 30*领域匹配 - 40*当前负载/容量"
+      },
+      {
+        "node": "review",
+        "capability": "review",
+        "domain": "general",
+        "selected": "safety_agent@2.1.0",
+        "candidates": [
+          {
+            "agent": "safety_agent@2.1.0",
+            "score": 130.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": true
+          }
+        ],
+        "formula": "100 + 30*领域匹配 - 40*当前负载/容量"
+      },
+      {
+        "node": "revision",
+        "capability": "diagnose",
+        "domain": "general",
+        "selected": "diagnosis_agent@2.1.0",
+        "candidates": [
+          {
+            "agent": "diagnosis_agent@2.1.0",
+            "score": 130.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": true
+          },
+          {
+            "agent": "pump_diagnosis_agent@2.1.0",
+            "score": 100.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": false
+          },
+          {
+            "agent": "motor_diagnosis_agent@2.1.0",
+            "score": 100.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": false
+          }
+        ],
+        "formula": "100 + 30*领域匹配 - 40*当前负载/容量"
+      },
+      {
+        "node": "review",
+        "capability": "review",
+        "domain": "general",
+        "selected": "safety_agent@2.1.0",
+        "candidates": [
+          {
+            "agent": "safety_agent@2.1.0",
+            "score": 130.0,
+            "load": 0,
+            "capacity": 1,
+            "domain_match": true
+          }
+        ],
+        "formula": "100 + 30*领域匹配 - 40*当前负载/容量"
+      }
+    ],
+    "workflow_audit": [
+      {
+        "workflow": "main",
+        "node": "plan",
+        "state": "RUNNING",
+        "monotonic_s": 76149.265,
+        "priority": 3
+      },
+      {
+        "workflow": "main",
+        "node": "plan",
+        "state": "DONE",
+        "monotonic_s": 76151.687,
+        "output_sha256": "109e07b302264ccf8942fafc68386f40ee4d726ebcebbb74a26b40e1e08b64cb",
+        "duration_ms": 2417.84
+      },
+      {
+        "workflow": "main",
+        "node": "evidence",
+        "state": "RUNNING",
+        "monotonic_s": 76151.687,
+        "priority": 3
+      },
+      {
+        "workflow": "main",
+        "node": "evidence",
+        "state": "DONE",
+        "monotonic_s": 76151.734,
+        "output_sha256": "3c2fa84650567dff5260b064c56171cc376a45914bb3ebc5871e562d1bf3a67a",
+        "duration_ms": 37.93
+      },
+      {
+        "workflow": "main",
+        "node": "analysis",
+        "state": "RUNNING",
+        "monotonic_s": 76151.734,
+        "priority": 2
+      },
+      {
+        "workflow": "analysis_subworkflow",
+        "node": "specialist",
+        "state": "SKIPPED",
+        "monotonic_s": 76151.75,
+        "reason": "条件不满足或前置节点跳过"
+      },
+      {
+        "workflow": "analysis_subworkflow",
+        "node": "knowledge",
+        "state": "RUNNING",
+        "monotonic_s": 76151.75,
+        "priority": 2
+      },
+      {
+        "workflow": "analysis_subworkflow",
+        "node": "knowledge",
+        "state": "DONE",
+        "monotonic_s": 76154.625,
+        "output_sha256": "f9396385d0aa9fac77fc60a5252dc2c17c2c1914b4df17669339d6c972828e37",
+        "duration_ms": 2869.55
+      },
+      {
+        "workflow": "main",
+        "node": "analysis",
+        "state": "DONE",
+        "monotonic_s": 76154.64,
+        "output_sha256": "27d3bff698736cb17b64fd731e79fc84a7b2dc18dc2037e6108a62cd0cb85851",
+        "duration_ms": 2897.46
+      },
+      {
+        "workflow": "main",
+        "node": "diagnosis",
+        "state": "RUNNING",
+        "monotonic_s": 76154.64,
+        "priority": 1
+      },
+      {
+        "workflow": "main",
+        "node": "diagnosis",
+        "state": "DONE",
+        "monotonic_s": 76159.078,
+        "output_sha256": "358655840e6bd774751e209d97e9d817babcaa7a7594be632fa88c1209e40189",
+        "duration_ms": 4437.7
+      },
+      {
+        "workflow": "main",
+        "node": "feedback",
+        "state": "RUNNING",
+        "monotonic_s": 76159.093,
+        "priority": 1
+      },
+      {
+        "workflow": "main",
+        "node": "feedback",
+        "state": "DONE",
+        "monotonic_s": 76165.171,
+        "output_sha256": "098ec3c5a4c08a2831fa2f668e542e379486c329ac13f87370e6ff1c874e29f6",
+        "duration_ms": 6082.23
+      }
+    ],
+    "state_snapshots": [
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "RUNNING",
+          "evidence": "WAITING",
+          "analysis": "WAITING",
+          "diagnosis": "WAITING",
+          "feedback": "WAITING"
+        },
+        "outputs": {}
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "WAITING",
+          "analysis": "WAITING",
+          "diagnosis": "WAITING",
+          "feedback": "WAITING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          }
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "RUNNING",
+          "analysis": "WAITING",
+          "diagnosis": "WAITING",
+          "feedback": "WAITING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          }
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "DONE",
+          "analysis": "WAITING",
+          "diagnosis": "WAITING",
+          "feedback": "WAITING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          },
+          "evidence": [
+            {
+              "id": "demo-input",
+              "title": "故障信息采集字段示例",
+              "source": "LingShu团队演示资料，非行业规程",
+              "demo": true,
+              "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+              "score": 0.0714
+            }
+          ]
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "DONE",
+          "analysis": "RUNNING",
+          "diagnosis": "WAITING",
+          "feedback": "WAITING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          },
+          "evidence": [
+            {
+              "id": "demo-input",
+              "title": "故障信息采集字段示例",
+              "source": "LingShu团队演示资料，非行业规程",
+              "demo": true,
+              "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+              "score": 0.0714
+            }
+          ]
+        }
+      },
+      {
+        "workflow": "analysis_subworkflow",
+        "states": {
+          "knowledge": "WAITING",
+          "specialist": "SKIPPED"
+        },
+        "outputs": {
+          "specialist": null
+        }
+      },
+      {
+        "workflow": "analysis_subworkflow",
+        "states": {
+          "knowledge": "RUNNING",
+          "specialist": "SKIPPED"
+        },
+        "outputs": {
+          "specialist": null
+        }
+      },
+      {
+        "workflow": "analysis_subworkflow",
+        "states": {
+          "knowledge": "DONE",
+          "specialist": "SKIPPED"
+        },
+        "outputs": {
+          "specialist": null,
+          "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。"
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "DONE",
+          "analysis": "DONE",
+          "diagnosis": "WAITING",
+          "feedback": "WAITING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          },
+          "evidence": [
+            {
+              "id": "demo-input",
+              "title": "故障信息采集字段示例",
+              "source": "LingShu团队演示资料，非行业规程",
+              "demo": true,
+              "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+              "score": 0.0714
+            }
+          ],
+          "analysis": {
+            "specialist": null,
+            "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。"
+          }
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "DONE",
+          "analysis": "DONE",
+          "diagnosis": "RUNNING",
+          "feedback": "WAITING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          },
+          "evidence": [
+            {
+              "id": "demo-input",
+              "title": "故障信息采集字段示例",
+              "source": "LingShu团队演示资料，非行业规程",
+              "demo": true,
+              "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+              "score": 0.0714
+            }
+          ],
+          "analysis": {
+            "specialist": null,
+            "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。"
+          }
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "DONE",
+          "analysis": "DONE",
+          "diagnosis": "DONE",
+          "feedback": "WAITING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          },
+          "evidence": [
+            {
+              "id": "demo-input",
+              "title": "故障信息采集字段示例",
+              "source": "LingShu团队演示资料，非行业规程",
+              "demo": true,
+              "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+              "score": 0.0714
+            }
+          ],
+          "analysis": {
+            "specialist": null,
+            "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。"
+          },
+          "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，确认前不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁、禁止带电拆卸、禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离后再进行安装验证；禁止在未确认隔离的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。"
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "DONE",
+          "analysis": "DONE",
+          "diagnosis": "DONE",
+          "feedback": "RUNNING"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          },
+          "evidence": [
+            {
+              "id": "demo-input",
+              "title": "故障信息采集字段示例",
+              "source": "LingShu团队演示资料，非行业规程",
+              "demo": true,
+              "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+              "score": 0.0714
+            }
+          ],
+          "analysis": {
+            "specialist": null,
+            "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。"
+          },
+          "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，确认前不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁、禁止带电拆卸、禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离后再进行安装验证；禁止在未确认隔离的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。"
+        }
+      },
+      {
+        "workflow": "main",
+        "states": {
+          "plan": "DONE",
+          "evidence": "DONE",
+          "analysis": "DONE",
+          "diagnosis": "DONE",
+          "feedback": "DONE"
+        },
+        "outputs": {
+          "plan": {
+            "domain": "general",
+            "priority": 2,
+            "need_specialist": false,
+            "query": "Python pip 安装依赖 requirements.txt 镜像源 prefer-binary 故障排查",
+            "reason": "该任务为通用软件环境依赖安装，不涉及具体泵或电机设备，也无需区分多个设备故障解释，故不启用专项分析；资料缺失较少，知识检索即可覆盖常见安装问题。",
+            "knowledge_priority": 2,
+            "specialist_priority": 3,
+            "fallback": false
+          },
+          "evidence": [
+            {
+              "id": "demo-input",
+              "title": "故障信息采集字段示例",
+              "source": "LingShu团队演示资料，非行业规程",
+              "demo": true,
+              "text": "故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察。缺少的数据需要标注未知，不允许自动补造测量数值。",
+              "score": 0.0714
+            }
+          ],
+          "analysis": {
+            "specialist": null,
+            "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。"
+          },
+          "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，确认前不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁、禁止带电拆卸、禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离后再进行安装验证；禁止在未确认隔离的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+          "feedback": {
+            "run_id": "fe36eae9211c",
+            "task": "python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary",
+            "knowledge": "【已知事实】\n- 用户提供的是一条 Python 包安装命令：`python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary`，即从清华 PyPI 镜像按 `requirements.txt` 安装依赖，并优先使用二进制包。\n- 检索材料 [KB:demo-input] 为 LingShu 团队演示资料，明确标注“非行业规程”，仅说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，且缺少的数据需标注未知、不允许自动补造测量数值。\n\n【可能原因（待验证，最多3项）】\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n【缺少的数据】\n- 该命令对应的项目名称、用途及 `requirements.txt` 内容未知。\n- 是否已执行、执行结果（成功/报错日志）未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）未知。\n- 与工业运维教学演示的具体关联未在资料中说明。\n\n【引用说明】\n- 仅命中 [KB:demo-input]，且该资料为演示材料，不能作为行业标准或操作依据。\n- 其余内容为模型假设，无资料支持。",
+            "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n关于本轮审核意见中“遵循现场作业许可流程”一项：该要求属于现场作业管理范畴，与本条 Python 安装命令无直接对应关系，但作为工业运维教学演示环境的一般要求予以纳入。任何涉及现场设备、控制网络或生产系统的操作，均须先按现场规程办理作业许可，未经许可不得实施；本条安装命令本身不构成作业许可，也不替代作业许可审批。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，并按现场规程办理作业许可；确认与许可审批完成前，不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程并落实作业许可要求。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离、作业许可手续完备后再进行安装验证；禁止在未确认隔离或未取得作业许可的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；未按现场规程办理作业许可或许可未获批准；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n- 现场作业许可的办理状态与审批结果：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，按现场作业许可流程办理并取得批准，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+            "review": "**审核结果：文本审核通过（仍待人工确认）**\n\n风险级别（AI 判断）：低\n\n本轮未发现所检查项目的明显缺项；不等于现场安全认证。",
+            "status": "PENDING_HUMAN",
+            "missing_phrases": [],
+            "validation_issues": [],
+            "revision_history": [
+              {
+                "round": 0,
+                "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，确认前不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁、禁止带电拆卸、禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离后再进行安装验证；禁止在未确认隔离的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+                "review": "**审核结果：文本审核通过（仍待人工确认）**\n\n风险级别（AI 判断）：低\n\n本轮未发现所检查项目的明显缺项；不等于现场安全认证。\n\n**平台独立校验：未通过**\n\n- 【测试注入】本轮要求补充：遵循现场作业许可流程",
+                "review_raw": "{\"passed\":true,\"risk_level\":\"low\",\"issues\":[]}",
+                "review_passed": false,
+                "model_review_passed": true,
+                "risk_level": "low",
+                "test_injected": true,
+                "missing_phrases": [],
+                "validation_issues": [],
+                "issues": [
+                  "【测试注入】本轮要求补充：遵循现场作业许可流程"
+                ],
+                "duration_ms": 1054,
+                "timestamp": "2026-11-12T17:58:57"
+              },
+              {
+                "round": 1,
+                "diagnosis": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n关于本轮审核意见中“遵循现场作业许可流程”一项：该要求属于现场作业管理范畴，与本条 Python 安装命令无直接对应关系，但作为工业运维教学演示环境的一般要求予以纳入。任何涉及现场设备、控制网络或生产系统的操作，均须先按现场规程办理作业许可，未经许可不得实施；本条安装命令本身不构成作业许可，也不替代作业许可审批。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，并按现场规程办理作业许可；确认与许可审批完成前，不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程并落实作业许可要求。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离、作业许可手续完备后再进行安装验证；禁止在未确认隔离或未取得作业许可的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；未按现场规程办理作业许可或许可未获批准；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n- 现场作业许可的办理状态与审批结果：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，按现场作业许可流程办理并取得批准，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+                "review": "**审核结果：文本审核通过（仍待人工确认）**\n\n风险级别（AI 判断）：低\n\n本轮未发现所检查项目的明显缺项；不等于现场安全认证。",
+                "review_raw": "{\"passed\":true,\"risk_level\":\"low\",\"issues\":[]}",
+                "review_passed": true,
+                "model_review_passed": true,
+                "risk_level": "low",
+                "test_injected": false,
+                "missing_phrases": [],
+                "validation_issues": [],
+                "issues": [],
+                "duration_ms": 718,
+                "timestamp": "2026-11-12T17:59:02",
+                "diagnosis_before": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，确认前不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁、禁止带电拆卸、禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离后再进行安装验证；禁止在未确认隔离的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。",
+                "diagnosis_after": "**初步判断（待核实）**\n\n用户材料是一条 Python 依赖安装命令，不是工业设备操作指令，也不构成现场作业许可。该命令的作用是：按 `requirements.txt` 从清华 PyPI 镜像安装依赖，并优先使用二进制包。检索仅命中 [KB:demo-input]，该资料为 LingShu 团队演示材料，明确标注“非行业规程”，只能说明故障描述可区分设备类型、异常发生时间、工况变化、振动或温度等用户观察，缺少的数据须标注未知，不得补造测量数值；不能作为行业标准或操作依据。该命令与工业运维教学演示的具体关联、项目用途、是否已执行及执行结果均未知，以下为模型假设，需专业人员核实。\n\n关于本轮审核意见中“遵循现场作业许可流程”一项：该要求属于现场作业管理范畴，与本条 Python 安装命令无直接对应关系，但作为工业运维教学演示环境的一般要求予以纳入。任何涉及现场设备、控制网络或生产系统的操作，均须先按现场规程办理作业许可，未经许可不得实施；本条安装命令本身不构成作业许可，也不替代作业许可审批。\n\n**可能原因（待验证，最多3项）**\n\n1. 该命令可能是为搭建或运行某个运维教学演示脚本/工具而准备 Python 环境（模型假设，资料未说明具体项目）。\n2. 若安装失败，可能与 `requirements.txt` 中的包版本、Python 版本或镜像源可用性有关（模型假设，缺少报错信息）。\n3. `--prefer-binary` 可能用于减少本地编译依赖，但若目标平台无对应 wheel，仍可能回退源码构建（模型假设）。\n\n**由专业人员核实的建议（最多4项）**\n\n1. 由专业人员确认该命令对应的项目名称、用途、`requirements.txt` 内容及与工业运维教学演示的关系，并按现场规程办理作业许可；确认与许可审批完成前，不得在涉及生产控制的系统上执行。\n2. 由专业人员核对运行环境的操作系统、Python 版本、网络与镜像可达性，并留存完整安装日志；若涉及工业现场设备或控制网络，须先停机并隔离能源，穿戴防护用品，遵守现场规程并落实作业许可要求。\n3. 由专业人员评估依赖包来源与版本锁定情况，确认不存在与现场规程冲突的组件；禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。\n4. 由专业人员确认该环境与生产系统隔离、作业许可手续完备后再进行安装验证；禁止在未确认隔离或未取得作业许可的情况下将演示环境接入控制网络。\n\n**停止条件**\n\n出现以下任一情况应停止：无法确认项目用途或 `requirements.txt` 内容；运行环境与生产控制网络未确认隔离；未按现场规程办理作业许可或许可未获批准；安装过程涉及现场设备操作而未执行停机并隔离能源；缺少专业人员确认；出现与现场规程冲突的指令。停止后不得自行继续，须由专业人员复核。\n\n**补充数据（未知项，明确列出）**\n\n- 项目名称、用途及 `requirements.txt` 内容：未知。\n- 是否已执行、执行结果（成功/报错日志）：未知。\n- 运行环境（操作系统、Python 版本、网络与镜像可达性）：未知。\n- 与工业运维教学演示的具体关联：资料未说明。\n- 是否涉及现场设备或控制网络：未知。\n- 现场作业许可的办理状态与审批结果：未知。\n\n**安全提醒**\n\n停机并隔离能源，穿戴防护用品，遵守现场规程，按现场作业许可流程办理并取得批准，待专业人员确认后方可继续。禁止绕过联锁，禁止带电拆卸，禁止触碰运行部件。以上为初步判断，所有未知数据不得编造补全。"
+              }
+            ],
+            "max_revisions": 2,
+            "self_loop_test": true,
+            "revision_count": 1,
+            "finished_at": "2026-11-12T17:59:02",
+            "stop_code": "TEXT_CHECKS_PASSED",
+            "blocking_issues": []
+          }
+        }
+      }
+    ],
+    "metrics": {
+      "model_calls": 6,
+      "model_attempts": 6,
+      "model_attempt_ms": 15609.579999999998,
+      "prompt_tokens": 6545,
+      "completion_tokens": 1931,
+      "retries": 0,
+      "peak_active_agents": 1,
+      "elapsed_ms": 17684.45
+    },
+    "agent_count": 4,
+    "checkpoint_errors": [],
+    "agents_used": [
+      "diagnosis_agent",
+      "knowledge_agent",
+      "planner_agent",
+      "safety_agent"
+    ],
+    "strategy": "dynamic",
+    "runtime_version": "2.1.0",
+    "recovery_context": {
+      "schema": 1,
+      "task": "python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary",
+      "run_id": "fe36eae9211c",
+      "signature": "9c409e6c2ffc65c894f332706316c4ac514bdb90042f3f199efbb9f339cdb1a8",
+      "execution_mode": "live_model",
+      "options": {
+        "task": "python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary",
+        "strategy": "dynamic",
+        "max_concurrency": 2,
+        "max_revisions": 2,
+        "self_loop_test": true,
+        "model": "deepseek-chat",
+        "knowledge_endpoint": "http://127.0.0.1:8765"
+      },
+      "knowledge_mode": "http_api"
+    },
+    "recovery": {
+      "parent_run_id": null,
+      "reused_nodes": [],
+      "rollback_to": null
+    },
+    "tool_audit": [
+      {
+        "agent": "knowledge_agent",
+        "tool": "search_knowledge",
+        "status": "DONE",
+        "hit_count": 1
+      }
+    ],
+    "memory_summary": {
+      "diagnosis_agent": 2
+    },
+    "knowledge_version": "21b8eeab09aead1925482334aa70a6c6ac4f67b31c9e6099c7e08e544393a8cc",
+    "knowledge_mode": "http_api",
+    "agent_config_hash": "1c874dd120e7def3eb1c2e4653755bc5dcc9400320a542746a4245842459cc78",
+    "model": "deepseek-chat",
+    "execution_mode": "live_model",
+    "review_scope": "文本审核，不构成现场安全认证",
+    "max_concurrency": 2
+  },
+  "events": [
+    {
+      "time": "17:58:46",
+      "agent": "system",
+      "agent_label": "系统",
+      "status": "进行中",
+      "message": "任务fe36eae9211c：启动dynamic编排",
+      "round": 0
+    },
+    {
+      "time": "17:58:46",
+      "agent": "planner_agent",
+      "agent_label": "任务规划 Agent",
+      "status": "进行中",
+      "message": "planning：能力匹配选中 planner_agent@2.1.0",
+      "round": 0
+    },
+    {
+      "time": "17:58:48",
+      "agent": "planner_agent",
+      "agent_label": "任务规划 Agent",
+      "status": "完成",
+      "message": "planning 完成",
+      "round": 0
+    },
+    {
+      "time": "17:58:48",
+      "agent": "system",
+      "agent_label": "系统",
+      "status": "工具调用",
+      "message": "HTTP API检索返回1条；示例资料不等于行业标准",
+      "round": 0
+    },
+    {
+      "time": "17:58:48",
+      "agent": "knowledge_agent",
+      "agent_label": "设备知识分析 Agent",
+      "status": "进行中",
+      "message": "knowledge_analysis：能力匹配选中 knowledge_agent@2.1.0",
+      "round": 0
+    },
+    {
+      "time": "17:58:51",
+      "agent": "knowledge_agent",
+      "agent_label": "设备知识分析 Agent",
+      "status": "完成",
+      "message": "knowledge_analysis 完成",
+      "round": 0
+    },
+    {
+      "time": "17:58:51",
+      "agent": "diagnosis_agent",
+      "agent_label": "故障诊断 Agent",
+      "status": "进行中",
+      "message": "initial_diagnosis：能力匹配选中 diagnosis_agent@2.1.0",
+      "round": 0
+    },
+    {
+      "time": "17:58:55",
+      "agent": "diagnosis_agent",
+      "agent_label": "故障诊断 Agent",
+      "status": "完成",
+      "message": "initial_diagnosis 完成",
+      "round": 0
+    },
+    {
+      "time": "17:58:55",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "进行中",
+      "message": "开始第 1 次审核",
+      "round": 0
+    },
+    {
+      "time": "17:58:55",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "进行中",
+      "message": "review：能力匹配选中 safety_agent@2.1.0",
+      "round": 0
+    },
+    {
+      "time": "17:58:56",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "完成",
+      "message": "review 完成",
+      "round": 0
+    },
+    {
+      "time": "17:58:57",
+      "agent": "system",
+      "agent_label": "系统",
+      "status": "测试注入",
+      "message": "仅演示模式：模拟一项审核缺项，触发真实修订与复审",
+      "round": 0
+    },
+    {
+      "time": "17:58:57",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "未通过",
+      "message": "第 1 轮未通过：【测试注入】本轮要求补充：遵循现场作业许可流程",
+      "round": 0
+    },
+    {
+      "time": "17:58:57",
+      "agent": "diagnosis_agent",
+      "agent_label": "故障诊断 Agent",
+      "status": "修订中",
+      "message": "根据第 1 轮审核意见修订",
+      "round": 1
+    },
+    {
+      "time": "17:58:57",
+      "agent": "diagnosis_agent",
+      "agent_label": "故障诊断 Agent",
+      "status": "进行中",
+      "message": "revision：能力匹配选中 diagnosis_agent@2.1.0",
+      "round": 1
+    },
+    {
+      "time": "17:59:01",
+      "agent": "diagnosis_agent",
+      "agent_label": "故障诊断 Agent",
+      "status": "完成",
+      "message": "revision 完成",
+      "round": 1
+    },
+    {
+      "time": "17:59:01",
+      "agent": "diagnosis_agent",
+      "agent_label": "故障诊断 Agent",
+      "status": "完成",
+      "message": "第 1 次修订完成（耗时 4278ms），重新审核",
+      "round": 1
+    },
+    {
+      "time": "17:59:01",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "进行中",
+      "message": "开始第 2 次审核",
+      "round": 1
+    },
+    {
+      "time": "17:59:01",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "进行中",
+      "message": "review：能力匹配选中 safety_agent@2.1.0",
+      "round": 1
+    },
+    {
+      "time": "17:59:02",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "完成",
+      "message": "review 完成",
+      "round": 1
+    },
+    {
+      "time": "17:59:02",
+      "agent": "safety_agent",
+      "agent_label": "安全审核 Agent",
+      "status": "通过",
+      "message": "第 2 轮文本审核通过（耗时 718ms），待人工确认",
+      "round": 1
+    },
+    {
+      "time": "17:59:02",
+      "agent": "system",
+      "agent_label": "系统",
+      "status": "完成",
+      "message": "流程结束：文本审核通过，待人工确认",
+      "round": 0
+    },
+    {
+      "time": "17:59:22",
+      "agent": "system",
+      "agent_label": "系统",
+      "status": "演示确认",
+      "message": "已确认演示结果；不代表现场操作授权",
+      "round": 0
+    }
+  ],
+  "approval_record": {
+    "task": "python -m pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --prefer-binary",
+    "run_id": "fe36eae9211c",
+    "status": "演示确认完成",
+    "time": "2026-11-12 17:59:22"
+  }
+}
